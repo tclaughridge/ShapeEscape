@@ -37,18 +37,6 @@ public class PlayerMovement : MonoBehaviour
         {
             Flip();
         }
-
-        // animator.SetFloat("Speed", Math.Abs(_playerRigidbody.velocity.x));
-        // animator.SetBool("IsJumping", !canJump);
-        // animator.SetBool("IsAttacking", _isAttacking);
-
-        // if (Input.GetKeyDown(KeyCode.Space))
-        // {
-        //     swordCollider.enabled = true;
-        //     _isAttacking = true;
-            
-        //     StartCoroutine(ResetAttack(attackSpeed));
-        // }
     }
 
     private void MovePlayer()
@@ -83,11 +71,4 @@ public class PlayerMovement : MonoBehaviour
         scale.x *= -1;
         transform.localScale = scale;
     }
-
-    // IEnumerator ResetAttack(float delay)
-    // {
-    //     yield return new WaitForSeconds(delay);
-    //     swordCollider.enabled = false;
-    //     _isAttacking = false;
-    // }
 }
