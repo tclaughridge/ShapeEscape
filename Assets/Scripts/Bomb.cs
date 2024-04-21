@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class Bomb : MonoBehaviour
 {
-    public float delay = 5f; // Seconds to explosion
-    public float blastRadius = 5f; // Radius of effect
-    public LayerMask destructionLayer; // Layer of objects that can be destroyed
+    public float delay = 5f;
+    public float blastRadius = 5f;
+    public LayerMask destructionLayer;
+    public GameObject explosionPrefab;
+    public GameObject fuse;
 
     private bool isActivated = false;
 
@@ -17,6 +19,12 @@ public class Bomb : MonoBehaviour
         {
             isActivated = true;
             StartCoroutine(ExplodeAfterDelay());
+
+            // Make fuse visible
+            if (fuse != null)
+            {
+                fuse.SetActive(true);
+            }
         }
     }
 
@@ -24,6 +32,13 @@ public class Bomb : MonoBehaviour
     {
         yield return new WaitForSeconds(delay);
         Explode();
+
+        // Instantiate the explosion prefab at the bomb's position and rotation
+        if (explosionPrefab != null)
+        {
+            Instantiate(explosionPrefab, transform.position, Quaternion.identity);
+        }
+
         Destroy(gameObject); // Destroy the bomb
     }
 

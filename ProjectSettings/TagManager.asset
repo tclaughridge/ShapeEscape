@@ -52,3 +52,6 @@ TagManager:
   - name: Objects
     uniqueID: 726777725
     locked: 0
+  - name: Fuse
+    uniqueID: 26762847
+    locked: 0
