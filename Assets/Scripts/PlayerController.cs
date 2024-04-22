@@ -5,8 +5,7 @@ using System;
 
 public class PlayerMovement : MonoBehaviour
 {
-
-    public Animator animator;
+    private Animator animator;
     [SerializeField] private float playerSpeed = 7.0f;
     [SerializeField] private float jumpPower = 7.5f;
 
@@ -18,15 +17,28 @@ public class PlayerMovement : MonoBehaviour
     private void Start()
     {
         _playerRigidbody = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
     }
 
     private void Update()
     {
         MovePlayer();
 
-        if (Input.GetKeyDown(KeyCode.W))
+        // Trigger Jump animation
+        if (Input.GetKeyDown(KeyCode.W) && canJump)
         {
             Jump();
+            animator.SetTrigger("Jumping");
+        }
+
+        // Check if the player is falling
+        if (_playerRigidbody.velocity.y < -0.8)
+        {
+            animator.SetBool("Falling", true);
+        }
+        else
+        {
+            animator.SetBool("Falling", false);
         }
 
         if (_playerRigidbody.velocity.x < 0 && _isFacingRight)
@@ -43,6 +55,8 @@ public class PlayerMovement : MonoBehaviour
     {
         var horizontalInput = Input.GetAxisRaw("Horizontal");
         _playerRigidbody.velocity = new Vector2(horizontalInput * playerSpeed, _playerRigidbody.velocity.y);
+
+        animator.SetFloat("Speed", Math.Abs(horizontalInput));
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -50,9 +64,9 @@ public class PlayerMovement : MonoBehaviour
         if (collision.gameObject.layer == LayerMask.NameToLayer("Ground") || collision.gameObject.layer == LayerMask.NameToLayer("Destructible"))
         {
             canJump = true;
+            animator.SetBool("Falling", false);
         }
     }
-
 
     private void Jump()
     {

@@ -6,28 +6,31 @@ public class SpringJump : MonoBehaviour
 {
     [SerializeField] private float launchForce = 20.0f;
     private Animator springAnimator;
+    private Animator playerAnimator;
 
     void Start()
     {
         // Get the Animator component from the GameObject
         springAnimator = GetComponent<Animator>();
+
+        // Get the Animator component from the player GameObject
+        playerAnimator = GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>();
     }
 
-    void OnCollisionEnter2D(Collision2D collision)
+    void OnTriggerEnter2D(Collider2D collider)
     {
-        if (collision.relativeVelocity.y <= 0f) // Checks if the player is moving downwards
+        Rigidbody2D rb = collider.GetComponent<Rigidbody2D>();
+        if (rb != null && rb.velocity.y <= 0)
         {
-            Rigidbody2D rb = collision.collider.GetComponent<Rigidbody2D>();
-            if (rb != null)
-            {
-                // Trigger the spring contracting animation
-                springAnimator.SetTrigger("Contract");
+            // Trigger the spring contracting animation
+            springAnimator.SetTrigger("Contract");
+            playerAnimator.SetTrigger("Jumping");
 
-                // Apply an upward force to the player
-                Vector2 velocity = rb.velocity;
-                velocity.y = launchForce;
-                rb.velocity = velocity;
-            }
+            // Apply an upward force to the player
+            Vector2 velocity = rb.velocity;
+            velocity.y = launchForce;
+            rb.velocity = velocity;
         }
     }
 }
+
