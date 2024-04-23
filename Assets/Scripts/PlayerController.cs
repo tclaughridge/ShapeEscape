@@ -6,10 +6,11 @@ using System;
 public class PlayerMovement : MonoBehaviour
 {
     private Animator animator;
-    [SerializeField] private float playerSpeed = 7.0f;
-    [SerializeField] private float jumpPower = 7.5f;
+    [SerializeField] private float playerSpeed = 4.0f;
+    [SerializeField] private float jumpPower = 18.5f;
 
-    public bool canJump = true;
+    private bool canJump = true;
+    private bool isPushing = false;
 
     private Rigidbody2D _playerRigidbody;
     private bool _isFacingRight = true;
@@ -49,6 +50,9 @@ public class PlayerMovement : MonoBehaviour
         {
             Flip();
         }
+
+        // Trigger Push animation based on bool value
+        animator.SetBool("Pushing", isPushing);
     }
 
     private void MovePlayer()
@@ -59,14 +63,48 @@ public class PlayerMovement : MonoBehaviour
         animator.SetFloat("Speed", Math.Abs(horizontalInput));
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnCollisionStay2D(Collision2D collision)
     {
-        if (collision.gameObject.layer == LayerMask.NameToLayer("Ground") || collision.gameObject.layer == LayerMask.NameToLayer("Destructible"))
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Destructible"))
+        {
+            CheckForPushing(collision);
+        }
+
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Ground"))
         {
             canJump = true;
             animator.SetBool("Falling", false);
         }
     }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Destructible"))
+        {
+            isPushing = false;
+        }
+    }
+
+    private void CheckForPushing(Collision2D collision)
+    {
+        float horizontalDifference = transform.position.x - collision.transform.position.x;
+        float pushDirection = _isFacingRight ? 1.0f : -1.0f;
+
+        if (Input.GetAxisRaw("Horizontal") == pushDirection && Mathf.Sign(horizontalDifference) != pushDirection)
+        {
+            foreach (ContactPoint2D point in collision.contacts)
+            {
+                if (Mathf.Abs(point.normal.y) < 0.5)
+                {
+                    isPushing = true;
+                    return;
+                }
+            }
+        }
+        
+        isPushing = false;
+    }
+
 
     private void Jump()
     {

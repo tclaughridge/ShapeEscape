@@ -74,8 +74,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 726777725
-  m_SortingLayer: 3
+  m_SortingLayerID: 903333461
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 4182ea62e783a4670869d06582b32765, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -129,7 +129,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerSpeed: 4
   jumpPower: 18.5
-  canJump: 0
 --- !u!70 &314493760756064237
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
