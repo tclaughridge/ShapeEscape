@@ -25,7 +25,6 @@ public class LevelManager : MonoBehaviour
     {
         // Activate the level complete UI
         levelCompleteUI.SetActive(true);
-        Debug.Log("Level Complete!");
     }
 
     public void LoadNextLevel()
