@@ -36,11 +36,16 @@ public class Enemy_Behavior : MonoBehaviour
         }
 
         // Move the enemy towards the player at the speed specified above
-        enemy_rb.position = new Vector2(enemy_rb.position.x + (Enemy_Speed * move_direction), enemy_rb.position.y);
+        enemy_rb.velocity = new Vector2((Enemy_Speed * move_direction), enemy_rb.velocity.y);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        //  (TODO) Game over / Restart level
+        // Checks to see if the object it collides with is the player
+        if (collision.collider.tag == "Player")
+        {
+            // Destroys the player
+            Destroy(collision.collider.gameObject);
+        }
     }
 }
