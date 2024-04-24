@@ -70,7 +70,7 @@ public class PlayerMovement : MonoBehaviour
             CheckForPushing(collision);
         }
 
-        if (collision.gameObject.layer == LayerMask.NameToLayer("Ground"))
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Ground") || collision.gameObject.layer == LayerMask.NameToLayer("Destructible"))
         {
             canJump = true;
             animator.SetBool("Falling", false);
