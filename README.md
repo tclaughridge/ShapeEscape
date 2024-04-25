@@ -1,17 +1,17 @@
-######CS 4730 / Team Game Final Submission			
+#### CS 4730 / Team Game Final Submission			
 
-######Adventuring Party    Computing ID
+###### Adventuring Party    Computing ID
 Thomas Laughridge    tcl5tu
 Thomas Cook          tmc2hp
 Loudon Hurt          lch4et
 
-######Game Title: 
+###### Game Title: 
 Shape Escape
 
-######GitHub Repo Link: 
+###### GitHub Repo Link: 
 https://github.com/tclaughridge/ShapeEscape 
 
-######Brief Elevator Pitch Describing Game:
+###### Brief Elevator Pitch Describing Game:
 
 You play as Shapeman, the only shape in Geometria that hasn’t lost his sanity to the evil Dr. Polygon’s ray. In order to save your home of Geometria, you must solve puzzles and evade traps to reach the doctor.
 
