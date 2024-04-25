@@ -663,6 +663,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Yellow Block
       objectReference: {fileID: 0}
+    - target: {fileID: 4177275085359246855, guid: c5ab3762ae038429b8a2e31f1846544f, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
