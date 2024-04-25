@@ -1,33 +1,33 @@
-#### CS 4730 / Team Game Final Submission			
+## CS 4730 / Team Game Final Submission			
 
-###### Adventuring Party    Computing ID
+### Adventuring Party    Computing ID
 Thomas Laughridge    tcl5tu
 Thomas Cook          tmc2hp
 Loudon Hurt          lch4et
 
-###### Game Title: 
+### Game Title: 
 Shape Escape
 
-###### GitHub Repo Link: 
+### GitHub Repo Link: 
 https://github.com/tclaughridge/ShapeEscape 
 
-###### Brief Elevator Pitch Describing Game:
+### Brief Elevator Pitch Describing Game:
 
 You play as Shapeman, the only shape in Geometria that hasn’t lost his sanity to the evil Dr. Polygon’s ray. In order to save your home of Geometria, you must solve puzzles and evade traps to reach the doctor.
 
-######Game Instructions:
+### Game Instructions:
 
 Use WASD to move, R to restart the current level, and click the start button when you’re ready
 
-######Available Content:
+### Available Content:
 
 The first 10 levels are available to play, teaching the player how certain blocks work and giving them a few puzzles to try.
 
-######Lessons Learned:
+### Lessons Learned:
 
 Save your project early and often because Unity likes to crash. Allow more time than you think you need to integrate your game systems together. Comment your code, because your teammates may not think in the same way you do.
 
-######Pledge:
+### Pledge:
 
 By submitting this document, the entire team attests to the following:
 
