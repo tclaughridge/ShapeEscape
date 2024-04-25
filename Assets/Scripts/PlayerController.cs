@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -53,6 +54,11 @@ public class PlayerMovement : MonoBehaviour
 
         // Trigger Push animation based on bool value
         animator.SetBool("Pushing", isPushing);
+
+        if (_playerRigidbody.position.y < -14)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
     }
 
     private void MovePlayer()
