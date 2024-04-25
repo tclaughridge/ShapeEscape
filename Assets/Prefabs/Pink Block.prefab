@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 861850338231590791}
   - component: {fileID: 3435647689080688100}
   - component: {fileID: 8437503785907455486}
-  m_Layer: 3
+  m_Layer: 6
   m_Name: Pink Block
   m_TagString: Untagged
   m_Icon: {fileID: 0}
