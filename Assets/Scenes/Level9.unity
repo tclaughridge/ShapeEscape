@@ -1559,11 +1559,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-<<<<<<< HEAD
-  orthographic size: 10.076942
-=======
   orthographic size: 10
->>>>>>> fac0080cbf229201ca442e06e4095bfc56ad1b84
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -1638,7 +1634,6 @@ MonoBehaviour:
     mipBias: 0
     varianceClampScale: 0.9
     contrastAdaptiveSharpening: 0
-<<<<<<< HEAD
 --- !u!1001 &916473834
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1696,8 +1691,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 45d213639cf2646639a47ed904ff1a4b, type: 3}
-=======
->>>>>>> fac0080cbf229201ca442e06e4095bfc56ad1b84
 --- !u!1001 &1052641083
 PrefabInstance:
   m_ObjectHideFlags: 0
