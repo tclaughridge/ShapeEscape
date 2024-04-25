@@ -131,7 +131,7 @@ BoxCollider2D:
   m_AutoTiling: 0
   serializedVersion: 2
   m_Size: {x: 10, y: 10}
-  m_EdgeRadius: 0
+  m_EdgeRadius: 0.02
 --- !u!50 &-3101460875541371951
 Rigidbody2D:
   serializedVersion: 4
@@ -171,6 +171,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0ba7c9454270fb40b05174bc209dca9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 3823648057196447759, guid: 2e6080e96598045b4a3c95232d07318d, type: 3}
   enemy_rb: {fileID: -3101460875541371951}
   Enemy_Speed: 2
